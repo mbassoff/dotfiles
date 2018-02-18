@@ -1,3 +1,9 @@
+
+[user]
+	name = mbassoff
+	email = mbassoff@gmail.com
+[core]
+	editor = vim
 [alias]
 	c = commit -am
 	fpush = push --force

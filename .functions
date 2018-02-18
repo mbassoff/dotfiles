@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+# ssh with tmux-iterm integration
+s() {
+  ssh $1 -t 'tmux -CC -u a || tmux -CC -u'
+}
 
 # Create a new directory and enter it
 function md() {

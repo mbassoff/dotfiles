@@ -7,6 +7,15 @@ for file in ~/.{extra,bash_prompt,exports,aliases,functions}; do
 done
 unset file
 
+# update TMUX SSH
+eval $(tmux show-env -s |grep '^SSH_')
+
+# add Z jumper
+source ~/code/z.sh
+
+# disable terminal scroll lock (Ctrl+S in vim)
+stty -ixon
+
 # to help sublimelinter etc with finding my PATHS
 case $- in
    *i*) source ~/.extra

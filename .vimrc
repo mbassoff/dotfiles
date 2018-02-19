@@ -1,4 +1,5 @@
 " vim:fdm=marker
+"
 
 " Settings -------------------------------------------------------------
 
@@ -522,6 +523,13 @@ augroup filetype_zsh
 augroup END
 " }}}
 
+" Hive {{{ 
+" for .hql files
+au BufNewFile,BufRead *.hql set filetype=hive expandtab
+
+" " for .q files
+au BufNewFile,BufRead *.q set filetype=hive expandtab
+" }}}
 
 " Plugin Configuration -------------------------------------------------------------
 

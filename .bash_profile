@@ -8,7 +8,7 @@ done
 unset file
 
 # update TMUX SSH
-eval $(tmux show-env -s |grep '^SSH_')
+# eval $(tmux show-env -s |grep '^SSH_')
 
 # add Z jumper
 source ~/code/z.sh
@@ -21,16 +21,16 @@ case $- in
    *i*) source ~/.extra
 esac
 
-# generic colouriser
-GRC=`which grc`
-if [ "$TERM" != dumb ] && [ -n "$GRC" ]
-    then
-        alias colourify="$GRC -es --colour=auto"
-        alias configure='colourify ./configure'
-        for app in {diff,make,gcc,g++,ping,traceroute}; do
-            alias "$app"='colourify '$app
-    done
-fi
+# # generic colouriser
+# GRC=`which grc`
+# if [ "$TERM" != dumb ] && [ -n "$GRC" ]
+#     then
+#         alias colourify="$GRC -es --colour=auto"
+#         alias configure='colourify ./configure'
+#         for app in {diff,make,gcc,g++,ping,traceroute}; do
+#             alias "$app"='colourify '$app
+#     done
+# fi
 
 # highlighting inside manpages and elsewhere
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
@@ -68,7 +68,7 @@ export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 shopt -s cmdhist
 
 # Save and reload the history after each command finishes
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+# export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # ^ the only downside with this is [up] on the readline will go over all history not just this bash session.
 
@@ -86,7 +86,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # z beats cd most of the time. `brew install z`
-zpath="$(brew --prefix)/etc/profile.d/z.sh"
+zpath="$HOME/code/z.sh"
 [ -s $zpath ] && source $zpath
 
 
@@ -99,21 +99,21 @@ if [[ -n "$ZSH_VERSION" ]]; then  # quit now if in zsh
 fi;
 
 # bash completion.
-if  which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-    source "$(brew --prefix)/share/bash-completion/bash_completion";
-elif [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion;
-fi;
+# if  which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+#     source "$(brew --prefix)/share/bash-completion/bash_completion";
+# elif [ -f /etc/bash_completion ]; then
+source /etc/bash_completion;
+# fi;
 
 # homebrew completion
-if  which brew > /dev/null; then
-    source "$(brew --prefix)/etc/bash_completion.d/brew"
-fi;
+# if  which brew > /dev/null; then
+#     source "$(brew --prefix)/etc/bash_completion.d/brew"
+# fi;
 
 # hub completion
-if  which hub > /dev/null; then
-    source "$(brew --prefix)/etc/bash_completion.d/hub.bash_completion.sh";
-fi;
+# if  which hub > /dev/null; then
+#     source "$(brew --prefix)/etc/bash_completion.d/hub.bash_completion.sh";
+# fi;
 
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type __git_complete &> /dev/null; then

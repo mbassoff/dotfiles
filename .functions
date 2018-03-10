@@ -1,9 +1,17 @@
 #!/bin/bash
+fixssh() {
+    for key in SSH_AUTH_SOCK SSH_CONNECTION SSH_CLIENT; do
+        if (tmux show-environment | grep "^${key}" > /dev/null); then
+            value=`tmux show-environment | grep "^${key}" | sed -e "s/^[A-Z_]*=//"`
+            export ${key}="${value}"
+        fi
+    done
+}
 #
 # ssh with tmux-iterm integration
-s() {
-  ssh $1 -t 'tmux -CC -u a || tmux -CC -u'
-}
+# s() {
+#   ssh $1 -t 'tmux -CC -u a || tmux -CC -u'
+# }
 
 # Create a new directory and enter it
 function md() {

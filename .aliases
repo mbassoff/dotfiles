@@ -1,3 +1,19 @@
+# Check ssh forwarding
+alias check-ssh-forwarding='ssh-add -l'
+alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
+
+# OOZIE 
+alias oozie-deploy-current='/usr/local/git_tree/main/apps/oozie/tools/oozie-deploytool.pl ${PWD##*/}'
+alias oozie-deploy='/usr/local/git_tree/main/apps/oozie/tools/oozie-deploytool.pl'
+alias oozie-schedule-current='/usr/local/git_tree/main/apps/oozie/tools/oozie-run.pl --type=coord ${PWD}'
+alias oozie-schedule='/usr/local/git_tree/main/apps/oozie/tools/oozie-run.pl --type=coord'
+
+# Spark
+alias spark-submit='/opt/spark/current20/bin/spark-submit'
+
+# Git
+alias git-push='fixssh; git pull --rebase && git push'
+
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
 alias cd..="cd .."
@@ -37,6 +53,7 @@ if gls --color > /dev/null 2>&1; then colorflag="--color"; else colorflag="-G"; 
 export CLICOLOR_FORCE=1
 
 # ls options: A = include hidden (but not . or ..), F = put `/` after folders, h = byte unit suffixes
+alias lsh='\ls -lt | head -30'
 alias ls='gls -AFh ${colorflag} --group-directories-first'
 alias lsd='ls -l | grep "^d"' # only directories
 #    `la` defined in .functions

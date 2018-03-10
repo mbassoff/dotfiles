@@ -1,5 +1,14 @@
 " vim:fdm=marker
 "
+" <TAB>: completion.
+imap <silent><expr> <TAB>  <SID>check_back_space() ? "\<TAB>" :  "<C-n>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || strpart(getline('.'), 0, col) =~ '^\s*$'
+endfunction
+
+" <S-TAB>: completion back.
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Settings -------------------------------------------------------------
 
@@ -510,10 +519,10 @@ augroup END
 
 " }}}
 " XML {{{
-augroup filetype_xml
-  autocmd!
-  au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
-augroup END
+" augroup filetype_xml
+"   autocmd!
+"   au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+" augroup END
 " }}}
 
 " ZSH {{{

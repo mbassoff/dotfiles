@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/usr/local/git_tree/main/apps/oozie/workflows/ppc-forecast-data-prep'
+let g:netrw_dirhist_2='/usr/local/git_tree/main/apps/oozie/workflows/ppc-algo-google-combine-stats-that-have-moved/bucketing'
+let g:netrw_dirhist_3='/usr/local/git_tree/main/apps/oozie/workflows/ppc-algo-google-sanity-check-bidchanges'
+let g:netrw_dirhist_4='/usr/local/git_tree/main/apps/oozie/workflows/ppc-algo-google-monitoring-alerts'

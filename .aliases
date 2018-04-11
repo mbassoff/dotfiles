@@ -9,9 +9,10 @@ alias oozie-schedule-current='/usr/local/git_tree/main/apps/oozie/tools/oozie-ru
 alias oozie-schedule='/usr/local/git_tree/main/apps/oozie/tools/oozie-run.pl --type=coord'
 
 # Spark
-alias spark-submit='/opt/spark/current20/bin/spark-submit'
+alias spark-submit='/opt/spark/current20/bin/spark-submit --driver-memory=12G --executor-memory=4G --queue=root.ppc-bidding --conf=spark.driver.maxResultSize=8g'
 
 # Git
+alias gts='git status'
 alias git-push='fixssh; git pull --rebase && git push'
 
 # Easier navigation: .., ..., ~ and -

@@ -3,10 +3,10 @@ alias check-ssh-forwarding='ssh-add -l'
 alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
 
 # OOZIE 
-alias oozie-deploy-current='/usr/local/git_tree/main/apps/oozie/tools/oozie-deploytool.pl ${PWD##*/}'
-alias oozie-deploy='/usr/local/git_tree/main/apps/oozie/tools/oozie-deploytool.pl'
-alias oozie-schedule-current='/usr/local/git_tree/main/apps/oozie/tools/oozie-run.pl --type=coord ${PWD}'
-alias oozie-schedule='/usr/local/git_tree/main/apps/oozie/tools/oozie-run.pl --type=coord'
+alias oozie-deploy-current='/usr/local/git_tree/main/apps/oozie/tools/oozie-deploytool.pl --svc_user=svc_hadoop_ppc ${PWD##*/}'
+alias oozie-deploy='/usr/local/git_tree/main/apps/oozie/tools/oozie-deploytool.pl --svc_user=svc_hadoop_ppc'
+alias oozie-schedule-current='/usr/local/git_tree/main/apps/oozie/tools/oozie-run.pl --svc_user=svc_hadoop_ppc --type=coord ${PWD}'
+alias oozie-schedule='/usr/local/git_tree/main/apps/oozie/tools/oozie-run.pl --type=coord --svc_user=svc_hadoop_ppc'
 
 # Spark
 alias spark-submit='/opt/spark/current20/bin/spark-submit --driver-memory=12G --executor-memory=4G --queue=root.ppc-bidding --conf=spark.driver.maxResultSize=8g'

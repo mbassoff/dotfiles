@@ -8,6 +8,8 @@ alias oozie-deploy='/usr/local/git_tree/main/apps/oozie/tools/oozie-deploytool.p
 alias oozie-schedule-current='/usr/local/git_tree/main/apps/oozie/tools/oozie-run.pl --svc_user=svc_hadoop_ppc --type=coord ${PWD}'
 alias oozie-schedule='/usr/local/git_tree/main/apps/oozie/tools/oozie-run.pl --type=coord --svc_user=svc_hadoop_ppc'
 
+# Hive
+alias hive='beeline'
 # Spark
 alias spark-submit='/opt/spark/current20/bin/spark-submit --driver-memory=12G --executor-memory=4G --queue=root.ppc-bidding --conf=spark.driver.maxResultSize=8g'
 
